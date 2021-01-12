@@ -17,8 +17,19 @@ function writePassword() {
   passwordText.value = password;
 }
 
-function generatePassword() {
-  var pwlength = parseInt(prompt('How many chars?'));
+function generatePassword() 
+{
+  var pwlength = parseInt(prompt('How many characters would you like your password to be? Please choose from 8-128 characters.'));
+  {
+    if( length < 8);{
+      prompt("Please select a higher number!");
+    }
+    if(length > 128);{
+      prompt("Please select a lower number!")
+
+    }
+    
+   }
   console.log(typeof pwlength);
   console.log();
 }
