@@ -1,61 +1,56 @@
-// Assignment Code
-var letterUp = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
-var letterLow = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-var num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+', '[', '{', ']', '}', ':', ';', '"', '<', '>', '.', '?', '~', '|'];
-
-var generateBtn = document.querySelector('#generate');
-var passwordText = document.querySelector('#password');
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-  
-
-  passwordText.value = password;
-}
-
-function generatePassword(password) 
+// FUNCTION - PASSWORD GENERATOR FUNCTION STARTS HERE.
+function generate ()
 {
-  var passwordText = parseInt(prompt('How many characters would you like your password to be? Please choose from 8-128 characters.'));
-  {
-    for (var i=0; i > password; i++){
-    var lowLet = letterLow[Math.floor(Math.random() * letterLow.length)];
+        // Variable to promt for characters 
+        var caseLenght = prompt('How many characters would you like your password to be? Please choose from 8-128 characters.');
 
-    var uplet = letterUp[Math.floor(Math.random() * letterUp.length)];
-
-    var number = num[Math.floor(Math.random() * num.length)];
-    }
-    {
-      if(num < 8);{
-        prompt("Please select a higher number!");
-      }
-      if(num > 128);{
-        prompt("Please select a lower number!")}
+        // if statment if <8 
+        if (caseLenght < 8) {
+        alert("Please select a higher number!");} 
         
-     }
+        // If total is greater than 128
+        else if (caseLenght > 128){
+        alert("Please select a lower number!");}
+        
+        // else statement to generate password  
+        else
+  {     
+        // Confirm to ask if user would like capital, lower case, numbers and special char.
+        var conUppCase = confirm("Would you like a capital letter? Ok for yes, cancel for no.");
+        var conLowCase = confirm("Would you like a lower case letter? Ok for yes, cancel for no.");
+        var conSymCase = confirm("Would you like a special character? Ok for yes, cancel for no.");
+        var conNumCase = confirm("Would you like a number? Ok for yes, cancel for no.");
 
-    var choice = prompt("Please choose the next character in your new password. c for a capital letter, l for a lowercase letter, n for a number or s for a special character.");{
-      if(choice === "c"){
-      document.getElementById("#password").innerHTML += uplet;
-       }
-       else if(choice === "l"){
-      document.getElementById("#password").innerHTML += lowLet;
-       }
-       else if(choice === "n"){
-      document.getElementById("#password").innerHTML += number;
-       }
-       else if(choice === "s"){
-      document.getElementById("#password").innerHTML += spec;
-      }
-      else prompt("That is not a valid choice") 
-  }
-  }
- }
+        // Varibles for char.
+        var letterUp = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
 
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+        var letterLow = ['abcdefghijklmnopqrstuvwxyz'];
+        
+        var num = ['0123456789'];
+        
+        var special = ['!@#$%^&*()_+'];
+        
+        // variable adding characters together.
+        var mixCharacthers = letterLow + letterUp + num + special;
+
+        // For loop for password 
+        for (var i = 0; i < caseLenght; i++)
+      {
+          // variable to randomly generate password 
+          var allCharacters = mixCharacthers[Math.floor(Math.random() * mixCharacthers.length)];
+          
+          // If user confirms all characters 
+          if(
+            (conUppCase === true) || 
+            (conLowCase === true) || 
+            (conSymCase === true) || 
+            (conNumCase === true)
+            ){document.getElementById("password").innerHTML += allCharacters;} 
+          
+          // if user doesn't chose char. 
+          else{
+            alert("You didn't Choose Any Type of Characters!!!");}
+      }    
+        
+  }
+}  
