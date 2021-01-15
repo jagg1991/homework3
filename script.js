@@ -16,10 +16,10 @@ function generate ()
         else
   {     
         // Confirm to ask if user would like capital, lower case, numbers and special char.
-        var conUppCase = confirm("Would you like a capital letter? Ok for yes, cancel for no.");
-        var conLowCase = confirm("Would you like a lower case letter? Ok for yes, cancel for no.");
-        var conSymCase = confirm("Would you like a special character? Ok for yes, cancel for no.");
-        var conNumCase = confirm("Would you like a number? Ok for yes, cancel for no.");
+        var conUppCase = confirm("Would you like a capital letter?");
+        var conLowCase = confirm("Would you like a lower case letter?");
+        var conSymCase = confirm("Would you like a special character?");
+        var conNumCase = confirm("Would you like a number?");
 
         // Varibles for char.
         var letterUp = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
@@ -31,13 +31,13 @@ function generate ()
         var special = ['!@#$%^&*()_+'];
         
         // variable adding characters together.
-        var mixCharacthers = letterLow + letterUp + num + special;
+        var char = letterLow + letterUp + num + special;
 
         // For loop for password 
         for (var i = 0; i < caseLenght; i++)
       {
           // variable to randomly generate password 
-          var allCharacters = mixCharacthers[Math.floor(Math.random() * mixCharacthers.length)];
+          var allCharacters = char[Math.floor(Math.random() * char.length)];
           
           // If user confirms all characters 
           if(
